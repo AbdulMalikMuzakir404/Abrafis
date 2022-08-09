@@ -52,6 +52,16 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:50', 'min:5'],
             'email' => ['required', 'string', 'email', 'max:70', 'min:10', 'unique:users'],
+            'nis' => ['required', 'string', 'max:20', 'min:7'],
+            'tgl_lahir' => ['required', 'string', 'max:20'],
+            'jk' => ['required', 'string', 'max:20'],
+            'jurusan' => ['required', 'string', 'max:50'],
+            'jurusan_berapa' => ['required', 'string', 'max:5'],
+            'kelas' => ['required', 'string', 'max:5'],
+            'nama_ortu' => ['required', 'string', 'max:50', 'min:5'],
+            'no_wa' => ['required', 'string', 'max:20'],
+            'no_hp' => ['required', 'string', 'max:20'],
+            'alamat' => ['required', 'string', 'max:100'],
             'password' => ['required', 'string', 'min:8', 'max:100', 'confirmed'],
         ]);
     }
@@ -67,6 +77,16 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'nis' => $data['nis'],
+            'tgl_lahir' => $data['tgl_lahir'],
+            'jk' => $data['jk'],
+            'jurusan' => $data['jurusan'],
+            'jurusan_berapa' => $data['jurusan_berapa'],
+            'kelas' => $data['kelas'],
+            'nama_ortu' => $data['nama_ortu'],
+            'no_wa' => $data['no_wa'],
+            'no_hp' => $data['no_hp'],
+            'alamat' => $data['alamat'],
             'password' => Hash::make($data['password']),
         ]);
     }

@@ -15,6 +15,34 @@ class ChangepassController extends Controller
         return view('pages.changepass');
     }
 
+    public function changeimage(Request $request)
+    {
+        $this->validate($request, [
+            'image' => 'required|image|mimes:jpg,png,jpeg|max:2048'
+        ]);
+        $destination_path = 'public/profile';
+        $image = time() . '_' . rand() . '.' . $request->file('image')->extension();
+        $request->file('image')->storeAs($destination_path, $image);
+        User::where('id', auth()->user()->id)
+        ->update([
+            'images' => $image
+        ]);
+
+        return redirect()->route('changepass')->with('successci', 'Success to change Images');
+    }
+
+    public function deleteimage()
+    {
+        User::where('id', auth()->user()->id)
+        ->where('images', auth()->user()->images)
+        ->update([
+            'images' => null
+        ]);
+
+        return redirect()->route('changepass')->with('success', 'Success to delete Images');
+    }
+
+
     public function changepassproses(ChangePassRequest $request)
     {
         $old_password = Auth::user()->password;

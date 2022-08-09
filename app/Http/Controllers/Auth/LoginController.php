@@ -44,4 +44,11 @@ class LoginController extends Controller
     {
         Auth::logoutOtherDevices($request->password);
     }
+
+    protected function validateLogin(Request $request)
+    {
+        $request->validate([
+            'g-recaptcha-response' => 'required|captcha'
+        ]);
+    }
 }
