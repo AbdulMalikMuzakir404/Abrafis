@@ -32,7 +32,7 @@ class DataUpdate extends Component
     }
 
     public function dataUpdate()
-    {
+    { 
         $this->validate([
             'kelas' => 'required|max:5',
             'jurusan' => ['required', 'in:"rpl", "mm", "elektro"'],

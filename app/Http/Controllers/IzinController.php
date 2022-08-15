@@ -49,7 +49,7 @@ class IzinController extends Controller
         ->get();
         $alfaCount = count($alfa);
 
-        if($sakitCount >= 0 && $hadirCount >= 0 && $alfaCount >= 0)
+        if($sakitCount >= 1 && $hadirCount >= 1 && $alfaCount >= 1)
         {
             return redirect()->route('home')->with('error', 'Data Absen anda hari ini sudah tercatat.');
         }

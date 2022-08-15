@@ -66,7 +66,7 @@ class HomeController extends Controller
         $countCek = count($cek);
 
 
-        $awal = strtotime('08:00:00');
+        $awal = strtotime('17:00:00');
         $akhir = strtotime(date('G:i:s'));
 
         if($awal <= $akhir)

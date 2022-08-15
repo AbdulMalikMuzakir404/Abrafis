@@ -94,8 +94,7 @@
                     <h1 class="display-6">Hadir</h1><br><h1 class="display-3">{{ $totalHadir }}<p class="lead">Kali</p></h1> <br>Selama bulan {{ date('F') }}
                 </div>
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <a href="{{ route('hadir') }}"
-                    onclick="cek();"
+                    <a onclick="cek();" href="{{ route('hadir') }}"
                     class="btn btn-outline-primary">Hadir</a>
                 </div>
             </div>
@@ -200,7 +199,7 @@
                 let long = position.coords.longitude;
 
                 // script ukur jarak antara 2 titik kordinat
-                getDistanceFromLatLonInKm(-7.009147922210896, 107.5472541664973,lat,long).toFixed(1);
+                getDistanceFromLatLonInKm(-7.0108599, 107.5477708,lat,long).toFixed(1);
 
                 function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
                 var R = 6371; // Radius of the earth in km
@@ -215,12 +214,9 @@
                 var d = R * c * 1000; // Distance in m
 
                 // kondisi dimana ketika siswa berada diluar zona maka akan di direct ke home
-                if(d >= 30)
+                if(d >= 100)
                 {
-                    toastr.error('lokasi anda saat ini masih di luar zona absen');
-                    setTimeout(() => {
-                        window.location = '{{ route("home")}}';
-                    }, 2000);
+                    window.location = '{{ route("home")}}';
                 }
 
                 return d;
@@ -263,7 +259,7 @@
                 L.Routing.control({
                 waypoints: [
                     L.latLng([lat, long]),
-                    L.latLng(-7.008623528692991, 107.54757798416496)
+                    L.latLng(-7.0108599, 107.5477708)
                 ]
                 }).addTo(routing);
 
@@ -279,20 +275,20 @@
 
                 var marker = L.marker([lat, long]).addTo(map).bindPopup('you location');
 
-                var circle = L.circle([-7.009147922210896, 107.5472541664973], {
+                var circle = L.circle([-7.0108599, 107.5477708], {
                 color: 'blue',
                 fillColor: '#0000FF',
                 fillOpacity: 0.5,
-                radius: 30
+                radius: 100
                 }).addTo(map).bindPopup('Zona Absen');
 
                 var polygon = L.polygon([
                     [lat, long],
-                    [-7.009147922210896, 107.5472541664973]
+                    [-7.0108599, 107.5477708]
                 ]).addTo(map).bindPopup('Line');
 
                 var popup = L.popup()
-                    .setLatLng([-7.009147922210896, 107.5472541664973])
+                    .setLatLng([-7.0108599, 107.5477708])
 
                 function onMapClick(e) {
                     popup

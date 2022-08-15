@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\dataAbsenSiswa;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,7 +38,7 @@ class HadirController extends Controller
         ->get();
         $alfaCount = count($alfa);
 
-        if($sakitCount >= 0 && $izinCount >= 0 && $alfaCount >= 0)
+        if($sakitCount > 1 && $izinCount >= 1 && $alfaCount >= 1)
         {
             return redirect()->route('home')->with('error', 'Data Absen anda hari ini sudah tercatat.');
         }
