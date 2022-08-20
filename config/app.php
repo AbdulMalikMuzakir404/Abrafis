@@ -183,6 +183,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         \Torann\GeoIP\GeoIPServiceProvider::class,
+        \Chatify\ChatifyServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -214,6 +215,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
+        'Chatify' => Chatify\Facades\ChatifyMessenger::class
     ])->toArray(),
 
 ];

@@ -326,6 +326,15 @@ elseif ($jkl == 0 && $jkp == 0)
           </li>
 
           <li class="nav-item">
+            <a href="{{ route('chatting') }}" class="nav-link">
+              <i class="nav-icon bi bi-chat-left-text"></i>
+              <p>
+                Chatting
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}"
             onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
