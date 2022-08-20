@@ -38,7 +38,7 @@ class HadirController extends Controller
         ->get();
         $alfaCount = count($alfa);
 
-        if($sakitCount > 1 && $izinCount >= 1 && $alfaCount >= 1)
+        if($sakitCount == 1 || $izinCount == 1 || $alfaCount == 1)
         {
             return redirect()->route('home')->with('error', 'Data Absen anda hari ini sudah tercatat.');
         }

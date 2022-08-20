@@ -4,14 +4,11 @@ namespace App\Http\Controllers;
 
 use PDF;
 use App\Models\User;
-use App\Models\sakit;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class SakitController extends Controller
 {
-    public $sakit;
-
     public function __construct()
     {
         date_default_timezone_set('Asia/Jakarta');
@@ -49,7 +46,7 @@ class SakitController extends Controller
         ->get();
         $alfaCount = count($alfa);
 
-        if($izinCount >= 1 && $hadirCount >= 1 && $alfaCount >= 1)
+        if($izinCount == 1 || $hadirCount == 1 || $alfaCount == 1)
         {
             return redirect()->route('home')->with('error', 'Data Absen anda hari ini sudah tercatat.');
         }
