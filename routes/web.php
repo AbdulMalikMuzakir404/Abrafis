@@ -103,17 +103,4 @@ Route::middleware(['auth', 'verified', 'user'])->group(function() {
 });
 
 
-// Route::get('/a', function (){
-//     return view('coba');
-// });
-
-// Route::get('/b', function (){
-//     event(new SendLocation('lorem ipsum dolor sit amet'));
-// });
-
-// Broadcast::routes();
-
-// Route::get('/midtrans', [MidtransConstoller::class, 'index']);
-
-
 Auth::routes(['verify'=>true]);
